@@ -25,3 +25,29 @@
 // In this example, the calibration values of these four lines are 12, 38, 15, and 77. Adding these together produces 142.
 
 // Consider your entire calibration document. What is the sum of all of the calibration values?
+
+function trebuchet(input) {
+  let firstDig;
+  let secondDig;
+  const array = input.split("");
+
+  for (let i = 0; i < array.length; i++) {
+    if (!isNaN(array[i])) {
+      firstDig = array.splice(i, 1);
+      break;
+    }
+  }
+
+  for (let i = array.length; i > 0; i--) {
+    if (!isNaN(array[i])) {
+      secondDig = array[i];
+      break;
+    }
+  }
+
+  if (secondDig) return firstDig + secondDig;
+
+  return firstDig.join();
+}
+
+console.log(trebuchet("z8"));
